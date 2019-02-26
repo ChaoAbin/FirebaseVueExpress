@@ -2,7 +2,7 @@ import Vue from 'vue';
 import firebase from 'firebase';
 import App from './App.vue';
 import router from './router';
-import firebaseKey from '../configs/firebaseKey';
+import firebaseKey from './configs/firebaseKey';
 
 Vue.config.productionTip = false;
 
