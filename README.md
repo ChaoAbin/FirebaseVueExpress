@@ -17,3 +17,13 @@ npm install
 # serve with hot reload at localhost:8080
 npm run serve
 ```
+
+### Deploy
+
+``` bash
+# firebase network setting
+paste firebase network setting to configs/firebaseKey.js
+
+# deploy
+npm run deploy
+```
