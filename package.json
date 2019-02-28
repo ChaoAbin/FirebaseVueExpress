@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "npm run functions & vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && npm run config:set:prod && firebase deploy",
+
+    "dev": "npm run dev:frontend & npm run dev:backend",
+    "dev:frontend": "vue-cli-service serve",
+    "dev:backend": "npm run config:set:dev && npm run set:dev:config && firebase serve --only functions",
+    "set:dev:config": "firebase functions:config:get > functions/.runtimeconfig.json",
+    "functions": "firebase serve --only functions",
+    "config:set:prod": "firebase functions:config:set config.path=configs/prod/",
+    "config:set:dev": "firebase functions:config:set config.path=configs/dev/"
   },
   "dependencies": {
     "firebase": "^5.5.7",
